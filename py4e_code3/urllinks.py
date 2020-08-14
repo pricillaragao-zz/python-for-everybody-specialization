@@ -12,8 +12,7 @@ ctx.check_hostname = False
 ctx.verify_mode = ssl.CERT_NONE
 
 
-
 # Retrieve all of the anchor tags
-tags = soup('a')
+tags = soup("a")
 for tag in tags:
-    print(tag.get('href', None))
+    print(tag.get("href", None))

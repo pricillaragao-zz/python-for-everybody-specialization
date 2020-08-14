@@ -1,5 +1,6 @@
 fname = input("Enter file name: ")
-if len(fname) < 1 : fname = "mbox-short.txt"
+if len(fname) < 1:
+    fname = "mbox-short.txt"
 
 fh = open(fname)
 emails = list()
@@ -11,5 +12,5 @@ for line in fh:
 
 for email in emails:
     print(email)
-        
+
 print("There were", len(emails), "lines in the file with From as the first word")

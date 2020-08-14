@@ -16,26 +16,26 @@ ctx.verify_mode = ssl.CERT_NONE
 
 todo = list()
 visited = list()
-url = input('Enter - ')
+url = input("Enter - ")
 todo.append(url)
-count = int(input('How many to retrieve - '))
+count = int(input("How many to retrieve - "))
 
-while len(todo) > 0 and count > 0 :
-    print("====== To Retrieve:",count, "Queue Length:", len(todo))
+while len(todo) > 0 and count > 0:
+    print("====== To Retrieve:", count, "Queue Length:", len(todo))
     url = todo.pop()
     count = count - 1
 
-    if (not url.startswith('http')):
+    if not url.startswith("http"):
         print("Skipping", url)
         continue
 
-    if (url.find('facebook') > 0):
+    if url.find("facebook") > 0:
         continue
 
-    if (url.find('linkedin') > 0):
+    if url.find("linkedin") > 0:
         continue
 
-    if (url in visited):
+    if url in visited:
         print("Visited", url)
         continue
 
@@ -47,12 +47,12 @@ while len(todo) > 0 and count > 0 :
         print("*** Error in retrieval")
         continue
 
-    soup = BeautifulSoup(html, 'html.parser')
+    soup = BeautifulSoup(html, "html.parser")
     visited.append(url)
 
     # Retrieve all of the anchor tags
-    tags = soup('a')
+    tags = soup("a")
     for tag in tags:
-        newurl = tag.get('href', None)
-        if (newurl is not None):
+        newurl = tag.get("href", None)
+        if newurl is not None:
             todo.append(newurl)

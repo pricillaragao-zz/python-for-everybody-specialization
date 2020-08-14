@@ -63,8 +63,6 @@ with urllib.request.urlopen(url) as response:
     # print(f"sum: {sum([comment['count'] for comment in comments])}")
     counts = []
     for comment in comments:
-        counts.append(comment['count'])
+        counts.append(comment["count"])
     print(f"Counts: {len(counts)}")
     print(f"Sum: {sum(counts)}")
-
-

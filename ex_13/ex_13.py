@@ -58,6 +58,5 @@ with urllib.request.urlopen(url) as response:
 # 6 - Sum the counts content.
 
 
-
-#count
-#sum
+# count
+# sum

@@ -1,8 +1,8 @@
 while True:
-    line = input('> ')
-    if line[0] == '#':
+    line = input("> ")
+    if line[0] == "#":
         continue
-    if line == 'done':
+    if line == "done":
         break
     print(line)
-print('Done!')
+print("Done!")

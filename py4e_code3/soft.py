@@ -1,4 +1,4 @@
-txt = 'but soft what light in yonder window breaks'
+txt = "but soft what light in yonder window breaks"
 words = txt.split()
 t = list()
 for word in words:

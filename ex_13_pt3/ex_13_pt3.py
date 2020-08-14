@@ -34,7 +34,7 @@ address = input("Enter Location:")
 print("Retrieving", address)
 
 service_url = "http://py4e-data.dr-chuck.net/json?"
-query_string = urllib.parse.urlencode({"key":42, "address":address})
+query_string = urllib.parse.urlencode({"key": 42, "address": address})
 url = service_url + query_string
 
 with urllib.request.urlopen(url) as response:
@@ -43,10 +43,3 @@ with urllib.request.urlopen(url) as response:
     data = json.loads(response_body)
     for item in data["results"]:
         print("Place id", item["place_id"])
-
-
-
-
-
-
-

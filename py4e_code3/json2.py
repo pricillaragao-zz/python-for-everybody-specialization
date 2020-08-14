@@ -1,6 +1,6 @@
 import json
 
-data = '''
+data = """
 [
   { "id" : "001",
     "x" : "2",
@@ -10,12 +10,12 @@ data = '''
     "x" : "7",
     "name" : "Brent"
   }
-]'''
+]"""
 
 info = json.loads(data)
-print('User count:', len(info))
+print("User count:", len(info))
 
 for item in info:
-    print('Name', item['name'])
-    print('Id', item['id'])
-    print('Attribute', item['x'])
+    print("Name", item["name"])
+    print("Id", item["id"])
+    print("Attribute", item["x"])

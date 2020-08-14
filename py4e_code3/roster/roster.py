@@ -1,11 +1,12 @@
 import json
 import sqlite3
 
-conn = sqlite3.connect('rosterdb.sqlite')
+conn = sqlite3.connect("rosterdb.sqlite")
 cur = conn.cursor()
 
 # Do some setup
-cur.executescript('''
+cur.executescript(
+    """
 DROP TABLE IF EXISTS User;
 DROP TABLE IF EXISTS Member;
 DROP TABLE IF EXISTS Course;
@@ -26,11 +27,12 @@ CREATE TABLE Member (
     role        INTEGER,
     PRIMARY KEY (user_id, course_id)
 )
-''')
+"""
+)
 
-fname = input('Enter file name: ')
+fname = input("Enter file name: ")
 if len(fname) < 1:
-    fname = 'roster_data_sample.json'
+    fname = "roster_data_sample.json"
 
 # [
 #   [ "Charley", "si110", 1 ],
@@ -41,23 +43,31 @@ json_data = json.loads(str_data)
 
 for entry in json_data:
 
-    name = entry[0];
-    title = entry[1];
+    name = entry[0]
+    title = entry[1]
 
     print((name, title))
 
-    cur.execute('''INSERT OR IGNORE INTO User (name)
-        VALUES ( ? )''', ( name, ) )
-    cur.execute('SELECT id FROM User WHERE name = ? ', (name, ))
+    cur.execute(
+        """INSERT OR IGNORE INTO User (name)
+        VALUES ( ? )""",
+        (name,),
+    )
+    cur.execute("SELECT id FROM User WHERE name = ? ", (name,))
     user_id = cur.fetchone()[0]
 
-    cur.execute('''INSERT OR IGNORE INTO Course (title)
-        VALUES ( ? )''', ( title, ) )
-    cur.execute('SELECT id FROM Course WHERE title = ? ', (title, ))
+    cur.execute(
+        """INSERT OR IGNORE INTO Course (title)
+        VALUES ( ? )""",
+        (title,),
+    )
+    cur.execute("SELECT id FROM Course WHERE title = ? ", (title,))
     course_id = cur.fetchone()[0]
 
-    cur.execute('''INSERT OR REPLACE INTO Member
-        (user_id, course_id) VALUES ( ?, ? )''',
-        ( user_id, course_id ) )
+    cur.execute(
+        """INSERT OR REPLACE INTO Member
+        (user_id, course_id) VALUES ( ?, ? )""",
+        (user_id, course_id),
+    )
 
     conn.commit()

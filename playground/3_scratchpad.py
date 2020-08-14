@@ -5,7 +5,7 @@ from bs4 import BeautifulSoup
 url = input("Enter: ")
 with urllib.request.urlopen(url) as response:
     html = response.read()
-# 2 - Parse the HTML;
+    # 2 - Parse the HTML;
     soup = BeautifulSoup(html, "html.parser")
 
 # 3 - Select the numbers;

@@ -1,11 +1,10 @@
-rawstr = input('Enter a number:')
-try: 
+rawstr = input("Enter a number:")
+try:
     ival = int(rawstr)
-except: 
+except:
     ival = -1
 
-if ival > 0 :  
-    print('Nice work')
-else:  
-    print('Not a number')
-
+if ival > 0:
+    print("Nice work")
+else:
+    print("Not a number")

@@ -4,6 +4,6 @@ import re
 # y = re.findall("\S+?@\S+", x)
 # print(y)
 
-xx = 'From: Using the : character'
-yy = re.findall('^F.+:', xx)
+xx = "From: Using the : character"
+yy = re.findall("^F.+:", xx)
 print(yy)
